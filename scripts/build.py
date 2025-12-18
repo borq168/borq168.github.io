@@ -34,9 +34,17 @@ def md_to_html(text):
             "sane_lists",
             "smarty",
         ],
-        extension_configs={"codehilite": {"guess_lang": False, "noclasses": True}},
+        extension_configs={"codehilite": {"guess_lang": False, "cssclass": "codehilite"}},
         output_format="html5",
     )
+
+def calculate_reading_time(text):
+    # Strip HTML tags for word count
+    clean_text = re.sub(r'<[^>]+>', '', text)
+    words = len(clean_text.split())
+    # ~200 wpm
+    minutes = max(1, round(words / 200))
+    return words, minutes
 
 def render(tpl, **ctx):
     env = Environment(
@@ -88,6 +96,7 @@ def build_posts(site):
         human_date = dt.strftime("%b %d, %Y")
         iso_date = dt.date().isoformat()
         html = md_to_html(body)
+        word_count, reading_time = calculate_reading_time(html)
 
         out_html = render("post.html",
                           base_url=site.get("base_url",""),
@@ -99,6 +108,8 @@ def build_posts(site):
                           content=html,
                           iso_date=iso_date,
                           human_date=human_date,
+                          word_count=word_count,
+                          reading_time=reading_time,
                           year=datetime.date.today().year)
 
         out_path = DIST / "posts" / f"{slug}.html"

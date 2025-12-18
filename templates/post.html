@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-  <a href="{{ base_url }}/">← back</a>
+<article>
   <h1>{{ title }}</h1>
-  <time datetime="{{ iso_date }}">{{ human_date }}</time>
-  <article>
-    {{ content|safe }}
-  </article>
+  <div class="meta">
+    <time datetime="{{ iso_date }}">{{ human_date }}</time>
+    {% if reading_time %}
+    <span>·</span>
+    <span>{{ reading_time }} min read</span>
+    <span>·</span>
+    <span>{{ word_count }} words</span>
+    {% endif %}
+  </div>
+  <div class="section">
+    {{ content | safe }}
+  </div>
+</article>
 {% endblock %}

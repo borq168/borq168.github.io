@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>borq</title>
+    <link>/</link>
+    <description>borq 的极简个人博客</description>
+    <language>zh-CN</language>
+    <item>
+      <title>极简博客的思考</title>
+      <link>/posts/notes-on-minimal-blogs.html</link>
+      <pubDate>Sat, 20 Jan 2024 00:00:00 -0000</pubDate>
+      <guid>/posts/notes-on-minimal-blogs.html</guid>
+      <description><![CDATA[关于极简博客设计理念的一些思考]]></description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>/posts/hello-world.html</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 -0000</pubDate>
+      <guid>/posts/hello-world.html</guid>
+      <description><![CDATA[我的第一篇博客文章]]></description>
+    </item>
+  </channel>
+</rss>
