@@ -33,8 +33,14 @@ def md_to_html(text):
             "attr_list",
             "sane_lists",
             "smarty",
+            "admonition",
+            "footnotes",
+            "def_list",
         ],
-        extension_configs={"codehilite": {"guess_lang": False, "cssclass": "codehilite"}},
+        extension_configs={
+            "codehilite": {"guess_lang": False, "cssclass": "codehilite"},
+            "toc": {"permalink": " "},
+        },
         output_format="html5",
     )
 
